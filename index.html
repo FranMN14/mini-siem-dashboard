@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini-SIEM Security Dashboard | SOC Operations</title>
+    <!-- Fuente moderna Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <!-- Sidebar Izquierdo -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-icon">🛡️</div>
+                <h2>SIEM <span>SOC</span></h2>
+            </div>
+            
+            <nav class="nav-menu">
+                <a href="#" class="nav-item active">
+                    <span class="icon">📊</span> Dashboard
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="icon">🔍</span> Event Logs
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="icon">🚨</span> Threat Intel
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="icon">⚙️</span> Settings
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-pill">
+                    <div class="avatar">F</div>
+                    <div class="user-info">
+                        <p class="name">Francinie Morales</p>
+                        <p class="role">SOC Analyst</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Contenido Principal -->
+        <main class="main-content">
+            <!-- Barra Superior -->
+            <header class="topbar">
+                <div class="header-title">
+                    <h1>Security Overview</h1>
+                    <p>Monitoreo de eventos en tiempo real & trazabilidad de red (SQL Server)</p>
+                </div>
+                <div class="topbar-actions">
+                    <span class="status-indicator"><span class="dot"></span> Live Monitoring</span>
+                </div>
+            </header>
+
+            <!-- Tarjetas de Métricas (KPIs) -->
+            <section class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="kpi-info">
+                        <span class="kpi-title">Total Alertas</span>
+                        <div class="number" id="total-alerts">0</div>
+                    </div>
+                    <div class="kpi-icon icon-purple">⚡</div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-info">
+                        <span class="kpi-title">Amenazas Críticas</span>
+                        <div class="number critical-color" id="critical-alerts">0</div>
+                    </div>
+                    <div class="kpi-icon icon-pink">🔥</div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-info">
+                        <span class="kpi-title">IPs Bloqueadas</span>
+                        <div class="number success-color" id="blocked-ips">0</div>
+                    </div>
+                    <div class="kpi-icon icon-green">🔒</div>
+                </div>
+            </section>
+
+            <!-- Tabla de Logs de Seguridad -->
+            <section class="content-card">
+                <div class="card-header">
+                    <h2>Registros de Seguridad (SecurityLogsDB)</h2>
+                </div>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Timestamp</th>
+                                <th>IP Origen</th>
+                                <th>IP Destino</th>
+                                <th>Evento</th>
+                                <th>Severidad</th>
+                                <th>Descripción</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody id="logs-table-body">
+                            <!-- Los registros se cargan con app.js -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
